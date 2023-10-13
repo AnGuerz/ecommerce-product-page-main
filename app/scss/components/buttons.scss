@@ -1,0 +1,107 @@
+@use 'util' as *;
+
+.main__section--text__buttons {
+
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    @include breakpoint(mobile) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &--add-remove {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: rem(8);
+        width: rem(163);
+        height: rem(52);
+        background: var(--light-grayish-blue);
+        margin-right: rem(20);
+
+        @include breakpoint(mobile) {
+            margin-right: 0;
+            width: 90vw;
+            margin-bottom: rem(15);
+        }
+
+        &__remove {
+            border: none;
+            background: var(--light-grayish-blue);
+            padding: rem(7) rem(14) rem(14) rem(14);
+            cursor: pointer;
+            color: var(--orange);
+            margin-right: 0;
+            transition: 0.3s ease-in-out;
+
+            &:hover {
+                color: lighten($color: hsl(26, 100%, 55%), $amount: 15%);
+            }
+        }
+
+        &__number {
+            margin: rem(15) rem(0);
+            font-size: rem(16);
+            font-weight: 700;
+            padding: rem(5) rem(35);
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            width: rem(30);
+
+            @include breakpoint(mobile) {
+                width: calc(90vw * 0.5);
+            }
+        }
+
+        &__add {
+            border: none;
+            background: var(--light-grayish-blue);
+            padding: rem(7) rem(14) rem(7) rem(14);
+            cursor: pointer;
+            color: var(--orange);
+            margin-left: 0;
+            transition: 0.3s ease-in-out;
+
+            &:hover {
+                color: lighten($color: hsl(26, 100%, 55%), $amount: 15%);
+            }
+        }
+    }
+
+    &--addtocart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--orange);
+        color: var(--white);
+        border-radius: rem(7);
+        padding: 0 rem(50);
+        
+        height: rem(52);
+        cursor: pointer;
+        margin-left: 0;
+        transition: 0.3s ease-in-out;
+
+        @include breakpoint(mobile) {
+            width: 63vw;
+            margin-bottom: rem(20);
+        }
+
+        svg {
+            margin-right: rem(20);
+        }
+
+        p {
+            font-size: rem(16);
+            font-weight: 700;
+        }
+
+        &:hover {
+            background: lighten($color: hsl(26, 100%, 55%), $amount: 15%);
+        }
+    }
+}

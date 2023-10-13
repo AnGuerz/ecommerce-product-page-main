@@ -1,0 +1,111 @@
+@use 'util' as *;
+
+.main__section--text {
+    @include breakpoint(mobile) {
+        padding: rem(15) rem(15) 0 rem(15);
+        width: 90vw;
+    }
+    &__title {
+        
+        &--name {
+            margin-top: rem(60);
+            margin-bottom: 0;
+            font-size: rem(14);
+            font-weight: 700;
+            color: lighten($color: hsl(26, 100%, 55%), $amount: 14%);
+            text-transform: uppercase;
+            letter-spacing: rem(3);
+
+            @include breakpoint(mobile) {
+                letter-spacing: 0;
+                margin-top: 0;
+            }
+        }
+
+        &--product {
+            margin-top: rem(15);
+            line-height: rem(52);
+            margin-bottom: rem(35);
+            color: var(--very-dark-blue);
+
+            @include breakpoint(mobile) {
+                margin-top: rem(10);
+                font-size: rem(25);
+                line-height: rem(30);
+                margin-bottom: rem(15);
+            }
+        }
+
+        &--text {
+            color: var(--dark-grayish-blue);
+            margin-bottom: rem(5);
+
+            @include breakpoint(mobile) {
+                font-size: rem(14);
+            }
+        }
+    }
+
+    &__promo {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+
+        @include breakpoint(mobile) {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &--valuepercent {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            margin-top: 0;
+            &__value {
+                font-size: rem(32);
+                font-weight: 700;
+                margin-right: rem(20);
+                margin-top: rem(23);
+                margin-bottom: rem(8);
+                color: var(--very-dark-blue);
+
+                @include breakpoint(mobile) {
+                    margin-top: rem(13);
+                    font-size: rem(30);
+                }
+            }
+
+            &__percent {
+                font-size: rem(18);
+                font-weight: 700;
+                margin-top: rem(13);
+                margin-bottom: 0;
+                color: var(--orange);
+                padding: rem(3) rem(8);
+                background: lighten($color: hsl(26, 100%, 55%), $amount: 38%);
+                border-radius: rem(8);
+
+                @include breakpoint(mobile) {
+                    margin-top: rem(6);
+                    font-size: rem(16);
+                }
+            }
+        }
+
+        &--oldvalue {
+            &__value {
+                font-size: rem(16);
+                margin-top: 0;
+                color: var(--dark-grayish-blue);
+                text-decoration: line-through;
+                margin-bottom: rem(45);
+
+                @include breakpoint(mobile) {
+                    margin-bottom: 0;
+                    margin-right: rem(13);
+                }
+            }
+        }
+    }
+}

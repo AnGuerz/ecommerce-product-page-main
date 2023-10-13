@@ -1,0 +1,140 @@
+@use 'util' as *;
+
+body {
+    position: relative;
+
+    @include breakpoint(mobile) {
+        padding: 0;
+        overflow-x: hidden;
+    }
+}
+
+.main {
+    &__section {
+        z-index: 1;
+    }
+
+    &__nav {
+        position: fixed;
+        z-index: 3;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: rgb(0, 0, 0, 0.7);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.5s ease;
+
+        @include breakpoint(mobile) {
+            display: none;
+        }
+
+        &--cont {
+            display: block;
+
+            &__close {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                top: rem(12);
+                left: rem(899);
+                color: var(--white);
+                cursor: pointer;
+                transition: 0.3s ease-in-out;
+
+                &:hover {
+                    color: lighten($color: hsl(26, 100%, 55%), $amount: 2%);
+                }
+                
+            }
+    
+            &__whole {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                    position: relative;
+                    z-index: 3;
+                    width: rem(470);
+                    border-radius: rem(15);
+                    top: rem(20);
+                    bottom: auto;
+                }
+    
+                svg {
+                    position: relative;
+                    z-index: 4;
+                    background: var(--light-grayish-blue);
+                    padding: rem(16) rem(19);
+                    border-radius: rem(30);
+                    top: rem(12);
+                    font-size: rem(30);
+                    color: var(--very-dark-blue);
+                    cursor: pointer;
+                    transition: 0.3s ease-in-out;
+    
+                    &:hover {
+                        color: lighten($color: hsl(26, 100%, 55%), $amount: 5%);
+                    }
+                }
+    
+                &__previous {
+                    left: rem(24);
+                }
+    
+                &__next {
+                    right: rem(24);
+                }
+            }
+
+            &__additional {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: rem(25);
+                justify-content: center;
+                align-items: center;
+                width: rem(370);
+
+                &--thumbnail {
+                    background: var(--white);
+                    position: relative;
+                    top: rem(25);
+                    left: rem(494);
+                    height: rem(70);
+                    border: rem(2) solid transparent;
+                    border-radius: rem(12);
+                    overflow: hidden;
+                    cursor: pointer;
+                    transition: 0.3s ease-in-out;
+
+                    &.selected {
+                        border: rem(2) solid var(--orange);
+                        img {
+                            opacity: 25%;
+                        }
+                         &:hover {
+                            img {
+                                opacity: 25%;
+                            }
+                         }
+                    }
+
+                    &:hover {
+                        img {
+                            opacity: 50%;
+                        }
+                    }
+
+                    img {
+                        position: relative;
+                        width: 100%;
+                    }
+                }
+
+            }
+        }
+
+    }
+}

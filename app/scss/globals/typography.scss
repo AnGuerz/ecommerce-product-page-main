@@ -1,0 +1,15 @@
+@use 'util' as *;
+
+body {
+    margin: 0;
+    padding: 0 rem(110);
+    box-sizing: border-box;
+    font-family: var(--font-kumbh);
+    background: var(--white);
+    height: 100vh;
+}
+
+h1 {
+    font-size: rem(45);
+    font-weight: 700;
+}

@@ -1,0 +1,140 @@
+@use 'util' as *;
+
+.main {
+    padding: rem(50);
+
+    @include breakpoint(mobile) {
+        padding-top: 0;
+    }
+    &__section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: rem(70);
+
+        @include breakpoint(mobile) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+        }
+
+        &--shoes {
+
+            &__big {
+                width: rem(430);
+                margin-bottom: rem(30);
+
+                @include breakpoint(mobile) {
+                    width: 100vw;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                &--previous {
+                    display: none;
+
+                    @include breakpoint(mobile) {
+                        position: absolute;
+                        display: block;
+                        background: var(--light-grayish-blue);
+                        padding: rem(12) rem(15);
+                        border-radius: rem(30);
+                        left: rem(20);
+                        font-size: rem(30);
+                        color: var(--very-dark-blue);
+                        cursor: pointer;
+                        transition: 0.3s ease-in-out;
+
+                        &:hover {
+                            color: lighten($color: hsl(26, 100%, 55%), $amount: 5%);
+                        }
+                    }
+                }
+
+                &--next {
+                    display: none;
+
+                    @include breakpoint(mobile) {
+                        position: absolute;
+                        display: block;
+                        background: var(--light-grayish-blue);
+                        padding: rem(12) rem(15);
+                        border-radius: rem(30);
+                        right: rem(20);
+                        font-size: rem(30);
+                        color: var(--very-dark-blue);
+                        cursor: pointer;
+                        transition: 0.3s ease-in-out;
+
+                        &:hover {
+                            color: lighten($color: hsl(26, 100%, 55%), $amount: 5%);
+                        }
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    border-radius: rem(15);
+                    cursor: pointer;
+
+                    @include breakpoint(mobile) {
+                        top: 10;
+                        height: calc(100vw * 0.8);
+                        border-radius: 0;
+                        pointer-events: none;
+                    }
+                }
+            }
+
+            &__thumbnails {
+                width: rem(430);
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: rem(20);
+                margin-bottom: rem(20);
+
+                @include breakpoint(mobile) {
+                    display: none;
+                    margin-bottom: 0;
+                }
+
+                &--thumbnail {
+                    border: rem(2) solid transparent;
+                    border-radius: rem(10);
+                    overflow: hidden;
+                    height: rem(89);
+                    transition: 0.3s ease-in-out;
+
+                    &.selected {
+                        border: rem(2) solid lighten($color: hsl(26, 100%, 55%), $amount: 4%);
+                        img {
+                            opacity: 25%;
+                        }
+                        &:hover {
+                            img {
+                                opacity: 25%;
+                            }
+                        }
+                    }
+                    
+                    &:hover {
+                        img {
+                            opacity: 50%;
+                        }
+                    }
+
+                    img {
+                        width: 100%;
+                        cursor: pointer;
+                        transition: 0.3s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+}
